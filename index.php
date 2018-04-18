@@ -1,3 +1,15 @@
+<?php
+
+  if ($_GET['city']) {
+
+  $forecastPage = file_get_contents("https://www.weather-forecast.com/locations/Cleveland/forecasts/latest");
+
+  echo $forecastPage;
+}
+
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,10 +20,46 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <style type="text/css">
+
+
+
+    body {
+
+      background: none;
+    }
+
+    input {
+
+      margin: 20px 0;
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 200px;
+      width: 500px;
+    }
+
+</style>
+
+    <title>Weather Scraper</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+
+    <div class="container">
+      <h1>What's the weather like?</h1>
+
+      <form>
+          <fieldset class="form-group">
+            <label for="exampleInputEmail1">Enter the name of a city</label>
+
+            <input type="text" class="form-control" name="city" id="city"  placeholder="Example: Cleveland">
+          </fieldset>
+          
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
